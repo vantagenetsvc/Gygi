@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <magenthemes translate="title" module="filterprice">
+            <title>MagenThemes</title>
+            <sort_order>75</sort_order>
+            <children>
+                <filterprice translate="title" module="filterprice">
+                    <title>Filter Price</title>
+                    <children>
+                        <filterprice translate="title" module="filterprice">
+                            <title>Filter Price Settings</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/system_config/edit/section/filterprice</action>
+                        </filterprice>
+                    </children>
+                </filterprice>
+            </children>
+        </magenthemes>
+    </menu>
+    <acl>
+	<resources>
+	    <all>
+			<title>Allow Everything</title>
+		</all>
+	    <admin>
+            <children>
+                <system>
+                <children>
+                    <config>
+                        <children>
+                            <filterprice>
+                            <title>Filter Price</title>
+                            </filterprice>
+                        </children>
+                    </config>
+                </children>
+                </system>
+                <magenthemes translate="title" module="filterprice">
+                    <title>MagenThemes</title>
+                    <sort_order>71</sort_order>
+                    <children>
+                        <filterprice translate="title" module="filterprice">
+                            <title>Filter Price</title>
+                            <children>
+                                <filterprice translate="title" module="filterprice">
+                                    <title>Configuration</title>
+                                    <sort_order>1</sort_order>
+                                    <action>adminhtml/system_config/edit/section/filterprice</action>
+                                </filterprice>
+                            </children>
+                        </filterprice>
+                    </children>
+                </magenthemes>
+            </children>
+	    </admin>
+	</resources>
+    </acl>
+</config>

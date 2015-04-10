@@ -1,0 +1,34 @@
+3.1 - Correctly implemented free shipping promotion logic.  Fixed getLineItem() call
+3.2 - Changed to reflect 1.4 branch more closely. Added in free method functionality
+3.3 - Fixed free shipping and dropship conflicts
+3.4 - Tagged to include WSA common v1.9.
+3.5 - Fixed getPickupDate to take next delivery day.
+3.6 - Added option to set default address type to business and default to liftgate.
+3.7 - Refactored code to simplify install
+3.8 - Added in code to pickup previously selected address type in the checkout.
+3.9 - Added support to always show certain shipping carriers (configurable in admin)
+4.0 - Implemented new API
+4.1 - Added in business role as now required. Made city mandatory. Added in dest city, dest state
+4.2 - Changed to work with wsafreightcommon
+4.3 - Moved address type and liftgate default values config into freightcommon. Also moved always display X carrier.
+5.0 - Changed to use Wsafreightcommon.
+5.1 - Including latest common code.
+6.0 - Refactored to use Abstract.php in Freight Common
+7.0 - Moved to community
+7.1 - Amended DOCS link
+7.2 - Moved Use Parent switch into Freight Common under shipping settings to fix issue with Must Ship Freight
+7.3 - Updated to include latest version of WSA Common Library
+8.0 - FREIGHT-59 Official release of refactored extension without extra step in checkout
+8.1 - FREIGHT-107 Changed support docs. Tested against 4.0 FreightCommon
+8.1.1  - Supports FreightCommon 4.0
+8.1.2  - new version of freight common
+8.1.3  - New version of Freight Common
+8.1.4  - SHIPMAN-7 Updated to include latest FreightCommon
+8.1.5  - Ensuring latest version of FreightCommon
+8.1.6  - New FreightCommon
+8.1.7  - FREIGHT-135 Compatibility with IWD OPC
+8.1.8  - Freight Common 4.5
+8.1.9  - FREIGHT-140 Freight information no longer displayed if no freight items are in the cart.
+8.1.9  - Includes latest Freight Commom
+8.1.10  - New FreightCommon
+8.1.11  - FREIGHT-143 - Fixed logic around free shipping promotions within the checkout

@@ -1,0 +1,60 @@
+/* Ted Sanders Digital Marketing Manager NOT in house developer */
+/* 4/1/2015 override.css for www.partyandsupplies.com */
+/* Please override all css files here - DO NOT modify core files*/
+/* Please use version control or you will lose an ear */
+/*Override #queldoreiNav font-size letter spacing and remove border*/
+
+#queldoreiNav > li > a { font-size: 16px; letter-spacing: 0; }
+.product-category-title { border-top: medium none;}
+
+/*Center header a.logo img [party&supplies logo] */
+@media only screen and (min-width: 768px)
+{header a.logo img
+{position: relative;
+    left: 280px;
+    overflow: hidden;
+}
+
+/* lower .search-top-container and .cart-top-container 120px to be inline with #queldoreiNav menu*/
+.search-top-container
+ {
+     position: relative;
+     top:120px;
+     right:12px
+ }
+ .cart-top-container
+ {
+     position: relative;
+     top:120px;
+ }
+header.fixed #queldoreiNav
+{
+    position: relative;
+    top:10px;
+    left:-43px;
+}
+.header-container .links li a{
+    position: relative;
+    left: 40px;
+
+}
+
+}
+/* remove logo from header when scrolling down when min-width is greater than 768px  */
+header.fixed a.logo img
+{
+    position: relative;
+    display: none;
+
+}
+
+header.fixed .search-top-container
+{
+ position: relative;
+ top: 60px
+}
+header.fixed .cart-top-container
+{
+    position: relative;
+    top:60px;
+}

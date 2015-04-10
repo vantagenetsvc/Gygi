@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Mage
+ * @package     Mage_Usa
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+/* Fedex Freight Shipping
+ *
+ * @category   Webshopapps
+ * @package    Webshopapps_Wsafedexfreight
+ * @copyright   Copyright (c) 2013 Zowta Ltd (http://www.WebShopApps.com)
+ *              Copyright, 2013, Zowta, LLC - US license
+ * @license    http://www.webshopapps.com/license/license.txt - Commercial license
+ */
+*/
+-->
+<config>
+   <modules>
+        <Webshopapps_Wsafedexfreight>
+          <version>0.0.1</version>
+           <depends>
+               <Mage_Shipping />
+           </depends>
+    	</Webshopapps_Wsafedexfreight>
+    </modules>
+ <global>
+    <models>
+        <wsafedexfreight>
+            <class>Webshopapps_Wsafedexfreight_Model</class>
+        </wsafedexfreight>
+        <wsafedexfreight_shipping>
+            <class>Webshopapps_Wsafedexfreight_Model</class>
+        </wsafedexfreight_shipping>
+    </models>
+    <resources>
+        <wsafedexfreight_setup>
+            <setup>
+                <module>Webshopapps_Wsafedexfreight</module>
+                <class>Webshopapps_Wsafedexfreight_Model_Resource_Eav_Mysql4_Setup</class>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </wsafedexfreight_setup>
+    </resources>
+    <sales>
+	<shipping>
+	    <carriers>
+			<wsafedexfreight>
+				<class>Webshopapps_Wsafedexfreight_Model_Shipping_Carrier_Wsafedexfreight</class>
+			</wsafedexfreight>
+	    </carriers>
+	</shipping>
+    </sales>
+           <helpers>
+         <wsafedexfreight>
+             <class>Webshopapps_Wsafedexfreight_Helper</class>
+         </wsafedexfreight>
+     </helpers> 
+     <sales>
+      <quote>
+        <item>
+          <product_attributes>
+            <fedex_freight_class/>
+            <fedex_item_packaging/>
+          </product_attributes>
+        </item>
+      </quote>
+     </sales>
+     <events>
+   		<admin_system_config_changed_section_carriers>
+			<observers>
+				<wsafedexfreight_observer>
+					<class>wsafedexfreight/observer</class>
+					<method>postError</method>
+				</wsafedexfreight_observer>
+			</observers>
+		</admin_system_config_changed_section_carriers>
+    </events> 
+  </global>
+   <frontend>
+        <translate>
+            <modules>
+                <Webshopapps_Wsafedexfreight>
+                    <files>
+                        <default>Webshopapps_Wsafedexfreight.csv</default>
+                    </files>
+                </Webshopapps_Wsafedexfreight>
+            </modules>
+        </translate>
+    </frontend>
+      <adminhtml>
+        <translate>
+            <modules>
+                <Webshopapps_Wsafedexfreight>
+                    <files>
+                        <default>Webshopapps_Wsafedexfreight.csv</default>
+                    </files>
+                </Webshopapps_Wsafedexfreight>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <carriers>
+            <wsafedexfreight>
+             <account backend_model="adminhtml/system_config_backend_encrypted"/>
+             <freight_account backend_model="adminhtml/system_config_backend_encrypted"/>
+                <meter_number backend_model="adminhtml/system_config_backend_encrypted"/>
+                <key backend_model="adminhtml/system_config_backend_encrypted"/>
+                <password backend_model="adminhtml/system_config_backend_encrypted"/>
+                <sandbox_mode>0</sandbox_mode>
+                <active>0</active>
+                <sallowspecific>0</sallowspecific>
+                <allowed_methods>FEDEX_1_DAY_FREIGHT,FEDEX_2_DAY_FREIGHT,FEDEX_3_DAY_FREIGHT,FEDEX_FREIGHT_ECONOMY,FEDEX_FREIGHT_PRIORITY,INTERNATIONAL_ECONOMY_FREIGHT,INTERNATIONAL_PRIORITY_FREIGHT,FEDEX_FIRST_FREIGHT,FEDEX_NATIONAL_FREIGHT</allowed_methods>
+                <cutoff_cost/>
+                <dropoff>REGULAR_PICKUP</dropoff>
+                <free_method>FEDEX_GROUND</free_method>
+                <handling>0</handling>
+                <packaging>YOUR_PACKAGING</packaging>
+                <item_packaging>SKID</item_packaging>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+                <handling_action>O</handling_action>
+                <serial backend_model="adminhtml/system_config_backend_encrypted" />
+                <model>wsafedexfreight_shipping/shipping_carrier_wsafedexfreight</model>
+                <name>LTL</name>
+                <title>Fedex Freight</title>
+                <min_weight>150</min_weight>    
+                <default_freight_class>55</default_freight_class>
+                <weight_apply>Order</weight_apply>
+                <restrict_rates>1</restrict_rates>
+                <use_accessories>1</use_accessories>
+                <liftgate_fee>0</liftgate_fee>
+                <residential_fee>0</residential_fee>
+                <debug>0</debug>
+                <apply_live_liftgate>0</apply_live_liftgate>
+                <apply_live_business>0</apply_live_business>
+                <liftgate_origin>0</liftgate_origin>
+                <payment_type>PREPAID</payment_type>
+                <role>SHIPPER</role>
+                <request_type>LIST</request_type>
+                <unitofmeasure>LB</unitofmeasure>
+                <hazardous_origin>0</hazardous_origin>
+            </wsafedexfreight>
+        </carriers>
+    </default>
+</config>

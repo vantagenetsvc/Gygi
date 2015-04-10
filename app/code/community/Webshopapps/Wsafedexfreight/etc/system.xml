@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<!-- * * Magento Webshopapps Shipping Module * * NOTICE OF LICENSE * * 
+	This source file is subject to the Open Software License (OSL 3.0) * that 
+	is bundled with this package in the file LICENSE.txt. * It is also available 
+	through the world-wide-web at this URL: * http://opensource.org/licenses/osl-3.0.php 
+	* If you did not receive a copy of the license and are unable to * obtain 
+	it through the world-wide-web, please send an email * to license@magentocommerce.com 
+	so we can send you a copy immediately. * * DISCLAIMER * * Do not edit or 
+	add to this file if you wish to upgrade Magento to newer * versions in the 
+	future. If you wish to customize Magento for your * needs please refer to 
+	http://www.magentocommerce.com for more information. * * @category Webshopapps 
+	* @package Webshopapps_Wsafedexfreight * @copyright   Copyright (c) 2013 Zowta Ltd (http://www.WebShopApps.com)
+ *              Copyright, 2013, Zowta, LLC - US license * @license http://opensource.org/licenses/osl-3.0.php 
+	Open Software License (OSL 3.0) * @author Karen Baker <enquiries@auctionmaid.com> 
+	 -->
+<config>
+	<sections>
+		<carriers translate="label" module="shipping">
+			<groups>
+				<wsafedexfreight translate="label">
+					<label>Webshopapps Fedex Freight</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<comment><![CDATA[
+			          <div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+			             This module was developed by <a href="http://www.webshopapps.com" target="_blank">WebShopApps.com</a> - <b>Magento Shipping Extension Specialists</b>.
+                		  <br/> For docs & examples refer to the WebShopApps <a href="http://support.webshopapps.com/freight/">Knowledge Base</a>.
+				          <br>Please also ensure you have configured the extension under Shipping Settings.
+			          </div>
+			          ]]>
+          				</comment>
+					<fields>
+						<active translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<credentials_heading translate="label">
+							<label>Credentials</label>
+							<frontend_model>adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</credentials_heading>
+					    <serial translate="label">
+							<label>Serial Key</label>
+							<frontend_type>obscure</frontend_type>
+							<backend_model>adminhtml/system_config_backend_encrypted
+							</backend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</serial>  
+						<title translate="label">
+							<label>Title</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						 <account translate="label comment">
+                            <label>Fedex Account ID</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Please make sure to use only digits here. No dashes are allowed.</comment>
+                        </account>
+                        <freight_account translate="label comment">
+                            <label>Freight Account ID</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Please make sure to use only digits here. No dashes are allowed.</comment>
+                        </freight_account>
+                        <meter_number translate="label">
+                            <label>Meter Number</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </meter_number>
+                        <key translate="label">
+                            <label>Key</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </key>
+                        <password translate="label">
+                            <label>Password</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </password>
+                        <request_type translate="label">
+                            <label>Rate Request Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_requesttype</source_model>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Choose whether to show Account or List Rates</comment>
+                        </request_type>
+                        <sandbox_mode translate="label">
+                            <label>Sandbox Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                       </sandbox_mode>
+                       <payer_heading translate="label">
+							<label>Payor Details</label>
+							<frontend_model>adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</payer_heading>
+					  	<payment_type translate="label">
+							<label>Payment Type</label>
+							<frontend_type>select</frontend_type>
+							<source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_payment</source_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</payment_type> 
+					<!--  	<payor_name translate="label">
+							<label>Name</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_name>-->
+						<payor_country_id translate="label">
+							<label>Country</label>
+							<frontend_type>select</frontend_type>
+							<frontend_class>countries</frontend_class>
+							<source_model>adminhtml/system_config_source_country
+							</source_model>
+							<sort_order>150</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_country_id>
+						<payor_region_id translate="label">
+							<label>Region/State</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>160</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_region_id>
+						<payor_postcode translate="label">
+							<label>ZIP/Postal Code</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>170</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_postcode>
+						<payor_city translate="label">
+							<label>City</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>180</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_city>
+						<payor_street_address translate="label">
+							<label>Street Address</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>190</sort_order>
+							<required>1</required>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_street_address> 
+						<when_show_heading translate="label">
+							<label>Display Criteria</label>
+							<frontend_model>adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</when_show_heading>
+						<allowed_methods translate="label">
+							<label>Allowed Methods</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_method
+							</source_model>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</allowed_methods>
+						<packaging_heading translate="label">
+							<label>Packaging</label>
+							<frontend_model>adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>300</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</packaging_heading>
+						<packaging translate="label">
+                            <label>Packaging Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_packaging</source_model>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </packaging>
+						<item_packaging translate="label">
+                            <label>Product Packaging Default</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_itempackaging</source_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </item_packaging>
+                                                <default_freight_class translate="label">
+										<label>Default freight NMFC class</label>
+										<frontend_type>select</frontend_type>
+										<source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_freightclass
+										</source_model>
+										<sort_order>335</sort_order>
+										<show_in_default>1</show_in_default>
+										<show_in_website>1</show_in_website>
+										<show_in_store>1</show_in_store>
+										<comment>If NMFC freight class on product not set uses this
+										</comment>
+						</default_freight_class>
+						<role translate="label">
+                            <label>Shipper Role</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_role</source_model>
+                            <sort_order>338</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </role>
+						<unit_of_measure translate="label">
+							<label>Weight Unit</label>
+							<frontend_type>select</frontend_type>
+							<source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_unitofmeasure
+							</source_model>
+							<sort_order>340</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</unit_of_measure>
+                        <accessories_pickup_heading translate="label">
+							<label>Accessories Pickup</label>
+							<frontend_model>adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>478</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</accessories_pickup_heading>
+						<hazardous_origin translate="label">
+							<label>Hazardous pickup</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>480</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hazardous_origin>
+						<free_heading translate="label">
+							<label>Free Criteria</label>
+							<frontend_model>adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>600</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</free_heading>
+						<free_shipping_enable>
+							<label>Free shipping with minimum order amount</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable
+							</source_model>
+							<sort_order>610</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</free_shipping_enable>
+						<free_shipping_subtotal translate="label">
+							<label>Minimum order amount for free shipping</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>620</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</free_shipping_subtotal>
+						<free_method translate="label">
+							<label>Free method</label>
+							<frontend_type>select</frontend_type>
+							<frontend_class>free-method</frontend_class>
+							<source_model>wsafedexfreight/shipping_carrier_wsafedexfreight_source_freemethod
+							</source_model>
+							<sort_order>630</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</free_method>
+						<standard_heading translate="label">
+							<label>Standard Shipping</label>
+							<frontend_model>adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>650</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</standard_heading>
+						<handling_type translate="label">
+							<label>Calculate handling fee</label>
+							<frontend_type>select</frontend_type>
+							<source_model>shipping/source_handlingType</source_model>
+							<sort_order>660</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</handling_type>
+						<handling_fee translate="label">
+							<label>Handling fee</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>670</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</handling_fee>
+						<sort_order translate="label">
+							<label>Sort order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>680</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<sallowspecific translate="label">
+							<label>Ship to applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>690</sort_order>
+							<frontend_class>shipping-applicable-country</frontend_class>
+							<source_model>adminhtml/system_config_source_shipping_allspecificcountries
+							</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sallowspecific>
+						<specificcountry translate="label">
+							<label>Ship to specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>700</sort_order>
+							<source_model>adminhtml/system_config_source_country
+							</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</specificcountry>
+						<showmethod translate="label">
+							<label>Show method if not applicable</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>720</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Will show shipping method with error message</comment>
+						</showmethod>
+						<specificerrmsg translate="label">
+							<label>Displayed error message</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>730</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</specificerrmsg>	
+					</fields>
+				</wsafedexfreight>
+			</groups>
+		</carriers>
+	</sections>
+</config>

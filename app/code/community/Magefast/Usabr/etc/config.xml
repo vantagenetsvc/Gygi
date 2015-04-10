@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Magefast_Usabr>
+            <version>0.3.0</version>
+        </Magefast_Usabr>
+    </modules>
+    <global>
+		<helpers>
+		    <usabr>
+                <class>Magefast_Usabr_Helper</class>
+            </usabr>
+			<directory>
+				<rewrite>
+					<data>Magefast_Usabr_Helper_Data</data>
+				</rewrite>
+			</directory>
+		</helpers>
+		<models>
+			<directory>
+				<rewrite>
+					<region>Magefast_Usabr_Model_Region</region>
+				</rewrite>
+			</directory>
+		</models>
+    </global>
+</config>
+ 

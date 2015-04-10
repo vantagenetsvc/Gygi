@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento Webshopapps Shipping Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * 
+ * @author 	Webshopapps
+ * @license www.webshopapps.com/license/license.txt
+ * @copyright   Copyright (c) 2013 Zowta Ltd (http://www.WebShopApps.com)
+ *              Copyright, 2013, Zowta, LLC - US license
+ * (c) Webshopapps.com Zowta Ltd 2012 - All rights reserved.
+*/
+-->
+<config>
+  <sections>
+    <carriers translate="label" module="shipping">
+      <groups>
+        <yrcfreight translate="label">
+          <label>Webshopapps YRC Freight Shipping</label>
+            <comment><![CDATA[
+			          <div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+			             This module was developed by <a href="http://www.webshopapps.com" target="_blank">WebShopApps.com</a> - <b>Magento Shipping Extension Specialists</b>.
+                		  <br/> For docs & examples refer to the WebShopApps <a href="http://support.webshopapps.com/freight/">Knowledge Base</a>.
+				          <br>Please also ensure you have configured the extension under Shipping Settings.
+			          </div>
+			          ]]>
+          </comment>
+          <frontend_type>text</frontend_type>
+          <sort_order>20</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <serial translate="label">
+			  <label>Serial Key</label>
+			  <frontend_type>obscure</frontend_type>
+              <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+			  <sort_order>40</sort_order>
+			  <show_in_default>1</show_in_default>
+			  <show_in_website>1</show_in_website>
+			  <show_in_store>1</show_in_store>
+			</serial>
+             <title translate="label">
+              <label>Title</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>50</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+             <name translate="label">
+                <label>Method name</label>
+                <frontend_type>text</frontend_type>
+                <sort_order>60</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+            </name>
+            <userid translate="label">
+                <label>User ID</label>
+                <frontend_type>obscure</frontend_type>
+                <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                <sort_order>70</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+            </userid>
+            <password translate="label">
+                <label>Password</label>
+                <frontend_type>obscure</frontend_type>
+                <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                <sort_order>80</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+            </password>
+             <business_id translate="label">
+                <label>Business ID</label>
+                <frontend_type>obscure</frontend_type>
+                <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                <sort_order>90</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+            </business_id>
+            <business_role translate="label">
+                <label>Business Role</label>
+                <frontend_type>select</frontend_type>
+                <source_model>yrcfreight/carrier_yrcfreight_source_role</source_model>
+                <sort_order>95</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+                <comment>The relationship between customer location and shipment</comment>
+            </business_role>
+            <max_cost translate="label">
+                <label>Maximum Shipping Cost</label>
+                <frontend_type>text</frontend_type>
+                <sort_order>100</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+            </max_cost>
+            <payment_terms translate="label">
+                <label>Payment Terms</label>
+                <frontend_type>select</frontend_type>
+                <source_model>yrcfreight/carrier_yrcfreight_source_payment</source_model>
+                <sort_order>200</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+            </payment_terms>  
+            <weekend_pickup translate="label">
+                <label>Allow Weekend Pickup</label>
+                <frontend_type>select</frontend_type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <sort_order>205</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>0</show_in_store>
+            </weekend_pickup>        
+            <handling_type translate="label">
+              <label>Calculate Handling Fee</label>
+              <frontend_type>select</frontend_type>
+              <source_model>shipping/source_handlingType</source_model>
+              <sort_order>210</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </handling_type>
+            <handling_fee translate="label">
+              <label>Handling Fee</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>225</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>              
+            </handling_fee>
+             <apply_discount translate="label">
+              <label>Apply Percentage Discount</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>230</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </apply_discount>
+              <free_method translate="label">
+                  <label>Free method</label>
+                  <frontend_type>select</frontend_type>
+                  <frontend_class>free-method</frontend_class>
+                  <source_model>yrcfreight/carrier_yrcfreight_source_freemethod</source_model>
+                  <sort_order>237</sort_order>
+                  <show_in_default>1</show_in_default>
+                  <show_in_website>1</show_in_website>
+                  <show_in_store>0</show_in_store>
+              </free_method>
+             <specificerrmsg translate="label">
+              <label>Displayed Error Message</label>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>240</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </specificerrmsg>
+            <sallowspecific translate="label">
+              <label>Ship to applicable countries</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>250</sort_order>
+              <frontend_class>shipping-applicable-country</frontend_class>
+              <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </sallowspecific>
+            <specificcountry translate="label">
+              <label>Ship to specific countries</label>
+              <frontend_type>multiselect</frontend_type>
+              <sort_order>260</sort_order>
+              <source_model>adminhtml/system_config_source_country</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </specificcountry>
+            <showmethod translate="label">
+              <label>Show method if Not Applicable</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>270</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+               <frontend_class>shipping-skip-hide</frontend_class>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </showmethod>
+             <sort_order translate="label">
+              <label>Sort Order</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>500</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </sort_order>
+          </fields>
+        </yrcfreight>
+      </groups>
+    </carriers>
+  </sections>
+</config>

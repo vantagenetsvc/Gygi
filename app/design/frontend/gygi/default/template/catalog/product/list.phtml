@@ -1,0 +1,244 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+$_productCollection=$this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+$theme = $this->helper('mtyoming');
+$helpImg = $this->helper('mttheme/image');
+$imgWidth = $theme->getCfg('category/image_width') ? $theme->getCfg('category/image_width') : 295;
+$imgHeight = $theme->getCfg('category/image_height') ? $theme->getCfg('category/image_height') : 295;
+if($theme->getCfg('category/aspect_ratio')){
+    $imgHeight = 0;
+}
+$cfdphover = $theme->getCfg('category_grid/hover_effect');
+$cfdlistphover = $theme->getCfg('category_list/hover_effect');
+if($cfdphover != 0){
+    $hoverClass = ($cfdphover == 1) ? 'hover-effect' : '';
+}
+if($cfdlistphover != 0){
+    $hoverlistClass = ($cfdlistphover == 1) ? 'hover-effect' : '';
+}
+
+$isSecure = Mage::app()->getStore()->isCurrentlySecure();
+?>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // List mode ?>
+    <?php if($this->getMode()!='grid'): ?>
+    <?php $_iterator = 0; ?>
+    <div class="products-list show-grid" id="products-list">
+    <?php foreach ($_productCollection as $_product): ?>
+	    <?php
+			$oType = false;
+			$product = Mage::getModel('catalog/product');
+			$product->load($_product->getId());
+			foreach ($product->getOptions() as $o) {
+				$optionType = $o->getType();
+				if ($optionType == 'file') {
+					$oType = true;
+				}
+			}
+		?>
+        <div class="col-lg-12 item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?> <?php echo $hoverlistClass;?>">
+            <?php // Product Image ?>
+            <!--<a href="<?php //echo $_product->getProductUrl() ?>" title="<?php //echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image grid12-4"><img src="<?php //echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200, 230); ?>" width="200" height="230" alt="<?php //echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>-->
+            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image grid12-4">
+                <?php echo $this->helper('mtyoming')->getLabel($_product);  ?>
+                <img src="<?php echo $helpImg->getImg($_product, $imgWidth, $imgHeight, 'small_image'); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                <?php if ($theme->getCfg('category/alt_image')): ?>
+                    <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                <?php endif; ?>
+            </a>
+			<?php // Product description ?>
+            <div class="product-shop grid12-8">
+                <div class="f-fix">
+                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
+                    <?php if($_product->getRatingSummary()): ?>
+                    <?php echo $this->getReviewsSummaryHtml($_product) ?>
+                    <?php endif; ?>
+                    <?php echo $this->getPriceHtml($_product, true) ?>
+					<div class="desc std">
+                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+                    </div>
+                    <?php if($_product->isSaleable()): ?>
+                         <p class="button-product-list">
+							 <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) || $oType == true ) { ?>
+								  <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart <?php if($oType == true) echo 'option-file';?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product, array('_secure'=>$isSecure)) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+							 <?php } else { ?>
+						 </p>
+						<?php if (Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) : ?>
+							<a style="display: none;" href='<?php echo $this->getUrl('ajaxcart/index/options',array('_secure'=>$isSecure,'product_id'=>$_product->getId()));?>' class='options-cart' id='options-cart-<?php echo $_product->getId()?>'><?php echo $this->__('Option cart')?></a>
+						<?php endif; ?>
+						<p class="button-product-list">
+							<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart show-options" data-id="<?php echo $_product->getId(); ?>"
+								<?php if (!Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) { ?>
+									onclick="setLocation('<?php echo $this->getAddToCartUrl($_product, array('_secure'=>$isSecure)) ?>')"
+								<?php }?> data-submit='<?php echo $this->getAddToCartUrl($_product, array('_secure'=>$isSecure)) ?>'><span><span><?php echo $this->__('Add to Cart') ?></span></span>
+							</button>
+						</p>
+					   <?php }  ?>
+							
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                    <div class="confix-produclist-category">
+						<ul class="add-to-links <?php echo $btnClassLink;?>">
+						     <?php
+								$cfdplink_simple_grid = $theme->getCfg('category_grid/addtolinks_simple');
+								$classSimple = ($cfdplink_simple_grid ==1)? '' : 'text-link';
+								$classSimplecompare = ($cfdplink_simple_grid ==1)? '' : 'text-link-compare';
+                            ?>
+							<?php if ($this->helper('wishlist')->isAllow()) : ?>
+								<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" title="<?php echo $this->__('Add to Wishlist') ?>" class="link-wishlist <?php echo $classSimple;?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
+							<?php endif; ?>
+							<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+								<li><a href="<?php echo $_compareUrl ?>" title="<?php echo $this->__('Add to Compare') ?>" class="link-compare <?php echo $classSimplecompare;?>"><?php echo $this->__('Add to Compare') ?></a></li>
+							<?php endif; ?>
+						</ul>
+					</div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    </div>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    <?php else: ?>
+
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = Mage::helper('mtyoming')->getCfg('category_grid/column_count'); ?>
+    <?php $_btColumn = 12/$_columnCount;?>
+	   <?php
+        $cfdpcart_grid = $theme->getCfg('category_grid/display_addtocart');
+        $cfdplink_grid = $theme->getCfg('category_grid/display_addtolinks');
+        if($cfdpcart_grid != 0){
+            $btnClassCart = ($cfdpcart_grid == 1) ? 'display-onhover' : '';
+        }
+        if($cfdplink_grid != 0){
+            $btnClassLink = ($cfdplink_grid == 1) ? 'display-onhover' : '';
+        }
+    ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+	    <?php
+			$oType = false;
+			$product = Mage::getModel('catalog/product');
+			$product->load($_product->getId());
+			foreach ($product->getOptions() as $o) {
+				$optionType = $o->getType();
+				if ($optionType == 'file') {
+					$oType = true;
+				}
+			}
+		?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <div class="show-grid products-grid">
+        <?php endif ?>
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-<?php echo $_btColumn;?> item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?> <?php echo $hoverClass;?>">
+               
+				<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                    <?php echo $this->helper('mtyoming')->getLabel($_product);  ?>
+                    <img src="<?php echo $helpImg->getImg($_product, $imgWidth, $imgHeight, 'small_image'); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                    <?php if ($theme->getCfg('category/alt_image')): ?>
+                        <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                    <?php endif; ?>
+                </a>
+                <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h3>
+                <?php if($_product->getRatingSummary()): ?>
+                    <?php $cfdpratting_grid = $theme->getCfg('category_grid/display_rating');?>
+                    <?php if ($cfdpratting_grid == 1): ?>
+                        <div class="display-onhover"><?php echo $this->getReviewsSummaryHtml($_product, 'short') ?></div>
+                    <?php elseif ($cfdpratting_grid == 2): ?>
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php echo $this->getPriceHtml($_product, true) ?>
+                <div class="actions">
+				    <div class="addtocart br">
+						<?php if($cfdpcart_grid != 0):?>
+                        <?php if($_product->isSaleable()): ?>
+                            <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) || $oType == true ) { ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart <?php if($oType == true) echo 'option-file';?> <?php echo $btnClassCart;?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product, array('_secure'=>$isSecure)) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                            <?php } else { ?>
+                                <?php if (Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) : ?>
+                                    <a style="display: none;" href='<?php echo $this->getUrl('ajaxcart/index/options',array('_secure'=>$isSecure, 'product_id'=>$_product->getId()));?>' class='options-cart' id='options-cart-<?php echo $_product->getId()?>'><?php echo $this->__('Option cart')?></a>
+                                <?php endif; ?>
+                                <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart show-options <?php echo $btnClassCart;?>" data-id="<?php echo $_product->getId(); ?>"
+                                    <?php if (!Mage::getStoreConfig('ajaxcart/ajaxcart_config/enable_ajaxcart')) { ?>
+                                        onclick="setLocation('<?php echo $this->getAddToCartUrl($_product, array('_secure'=>$isSecure)) ?>')"
+                                    <?php }?> data-submit='<?php echo $this->getAddToCartUrl($_product, array('_secure'=>$isSecure)) ?>'><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+                            <?php }  ?>
+                        <?php else: ?>
+                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                        <?php endif; ?>
+                    <?php endif; ?>
+					</div>	
+				    <?php if($cfdplink_grid != 0){?>
+					<div class="confix-produclist-category">
+					    
+						<ul class="add-to-links <?php echo $btnClassLink;?>">
+						    <?php
+								$cfdplink_simple_grid = $theme->getCfg('category_grid/addtolinks_simple');
+								$classSimple = ($cfdplink_simple_grid ==1)? '' : 'text-link';
+								$classSimplecompare = ($cfdplink_simple_grid ==1)? '' : 'text-link-compare';
+                            ?>
+							<?php if ($this->helper('wishlist')->isAllow()) : ?>
+								<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" title="<?php echo $this->__('Wishlist') ?>" class="link-wishlist <?php echo $classSimple;?>"><?php echo $this->__('Wishlist') ?></a></li>
+							<?php endif; ?>
+							<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+								<li><!--<span class="separator">|</span> --><a href="<?php echo $_compareUrl ?>" title="<?php echo $this->__('Compare') ?>" class="link-compare <?php echo $classSimplecompare;?>"><?php echo $this->__('Compare') ?></a></li>
+							<?php endif; ?>
+						</ul>
+					</div>
+					<?php }?>
+                </div>
+            </div>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </div>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    <?php endif; ?>
+
+    <div class="toolbar-bottom" style="clear:both;">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</div>
+<?php endif; ?>

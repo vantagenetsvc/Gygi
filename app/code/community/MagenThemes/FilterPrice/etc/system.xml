@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mtextension translate="label">
+            <label>Magenthemes Extensions</label>
+            <sort_order>114</sort_order>
+        </mtextension>
+    </tabs>
+    <sections>
+        <filterprice translate="label">
+            <label>Filter Price</label>
+            <tab>mtextension</tab>
+            <sort_order>130</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <filterprice_config translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_filterprice translate="label">
+                            <label>Enable Filter Price: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_filterprice>
+                        <enable_ajaxwishlist translate="label">
+                            <label>Enable Ajax Wishlist: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_ajaxwishlist>
+                        <enable_ajaxcompare translate="label">
+                            <label>Enable Ajax Compare: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_ajaxcompare>
+                    </fields>
+                </filterprice_config>
+                <info translate="label">
+                    <label>Filter Price Information</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>filterprice/about_information</frontend_model>
+                    <sort_order>150</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <p_link>http://yestheme.com</p_link>
+                    <y_link>http://yestheme.com</y_link>
+                </info>
+            </groups>
+        </filterprice>
+    </sections>
+</config>

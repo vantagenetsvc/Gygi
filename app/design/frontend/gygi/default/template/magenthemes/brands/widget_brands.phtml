@@ -1,0 +1,85 @@
+<?php $helper = Mage::helper('brands'); ?>
+<?php
+    if ($this->_getData('all_brands')){
+        $brands = $this->getAllBrands();
+    }else{
+        $brands = $this->getAllBrandsInUse();
+    }
+	//Block parameters
+	$showItems = $this->_getData('show_items');
+    $slideLoop = ($this->_getData('loop'))? 'true' : 'false';
+    $slideEasing = ($this->_getData('easing')!='false')? $this->_getData('easing') : '';
+
+	if (!$showItems){
+		$showItems = 5;
+
+	}
+    $timeout = $this->getTimeout();
+    if ($timeout == "null"){
+        $timeout = 0;
+    }else{
+        $timeout = intval($timeout);
+        if (!$timeout){
+            $timeout = intval($helper->getCfg('slider/timeout'));
+        }
+    }
+    $initDelay = intval($this->getInitDelay());
+?>
+<div class="brand-slider-wrapper">
+     <div class="box-heading">
+	    <div class="row show-grid">
+		    <?php if($this->_getData('widget_title')):?>
+			     <h1 class="block-title col-lg-10 col-xs-9 col-sm-10 col-md-10"><?php echo $this->_getData('widget_title'); ?></h1>
+			<?php endif;?>
+	       <div class="brand-nav-wrapper col-lg-2 col-xs-3 col-sm-2 col-md-2"></div>
+	   </div>
+	</div>
+	<div class="brand-slider itemslider itemslider-responsive">
+        <ul class="slides">
+            <?php foreach ($brands as $brand): ?>
+                <li class="item">
+                	<?php $brandPageUrl = $this->getBrandPageUrl($brand); ?>
+                    <a href="<?php echo $this->getBrandPageUrl($brand); ?>" title="<?php echo $this->__('Click to see more products from %s', $brand); ?>">
+                    	<img src="<?php echo $this->getBrandImageUrl($brand); ?>" class="img-responsive" alt="<?php echo $brand; ?>" />
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	$mt(function($) {
+		$('.brand-slider-wrapper .itemslider').flexslider({
+			namespace: "",
+			animation: "slide",
+			animationLoop: <?php echo $slideLoop; ?>,
+			<?php if ($timeout): ?>
+				slideshowSpeed: <?php echo $timeout; ?>,
+			<?php else: ?>
+				slideshow: false,
+			<?php endif; ?>
+			<?php if ($initDelay): ?>
+				initDelay: <?php echo $initDelay; ?>,
+			<?php endif; ?>
+			<?php if ($speed = intval($helper->getCfg('slider/speed'))): ?>
+				animationSpeed: <?php echo $speed; ?>,
+			<?php endif; ?>
+			pauseOnHover: <?php echo $helper->getCfg('slider/pause'); ?>,
+			controlNav: false,
+			controlsContainer: ".brand-nav-wrapper",
+			itemWidth: 200,
+			<?php if ($showItems): ?>
+				minItems: <?php echo $showItems; ?>,
+				maxItems: <?php echo $showItems; ?>
+			<?php endif; ?>
+		})
+            <?php if ($breakpoints): ?>
+            .data("breakpoints", [ <?php echo $breakpoints; ?> ] )
+            <?php elseif ($showItems): ?>
+            .data("showItems", <?php echo $showItems; ?> )
+        <?php endif; ?>
+        ;
+	});
+//]]>
+</script>

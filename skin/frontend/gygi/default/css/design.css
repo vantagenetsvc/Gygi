@@ -1,0 +1,154 @@
+body { font-family:Open Sans, georgia, serif; }
+#mtnav li.level0 a { color:#ffffff; }
+#mtnav li:hover a.level-top {
+    background-color:#8ac20e;
+    color:#ffffff;
+}
+#mtnav li.active a.level-top {
+    background:#8ac20e;
+    color:#ffffff;
+}
+#mtnav .sub-wrapper { background:#8ac20e; }
+#mtnav li.level0 ul li a { color:#ffffff; }
+#mtnav li.level0 ul li a:hover { color:#000000; }
+.mtmenu-block .nav-block h1 { color:#ffffff; }
+.mtmenu-block .nav-block p { color:#ffffff; }
+.nav-block .show-separators ul li.label { color:#ffffff; }
+#mtnav li.level0 .mtmenu-block .nav-block a { color:#ffffff; }
+#mtnav li.level0 .mtmenu-block .nav-block a:hover { color:#000000; }
+.mtmenu-block .nav-block .show-separators ul.links li a { color:#ffffff; }
+.mtmenu-block .nav-block .show-separators ul.links li a:hover { color:#000000; }
+li.level0 > a > span > .cat-label-label1.pin-bottom:before { border-top-color:#5bd2ec; }
+li.level0 > a:hover > span > .cat-label-label1.pin-bottom:before { border-top-color:#8ac20e; }
+.cat-label-label1 {
+    background-color:#5bd2ec;
+    color:#ffffff;
+}
+.cat-label-label1:hover {
+    background-color:#8ac20e;
+    color:#ffffff;
+}
+.cat-label-label2 {
+    background-color:#d52462;
+    color:#ffffff;
+}
+.cat-label-label2:hover {
+    background-color:#8ac20e;
+    color:#ffffff;
+}
+li.level0 > a > span > .cat-label-label2.pin-bottom:before { border-top-color:#d52462; }
+li.level0 > a:hover > span > .cat-label-label2.pin-bottom:before { border-top-color:#8ac20e; }
+body {
+    color:#666666;
+    font-size:13px;
+}
+a { color:#656565; }
+a, .dropdown .text { color:#656565; }
+a:hover {
+    color:#8ac20e;
+    text-decoration:none;
+}
+.block-cart .block-content .summary .subtotal .label { color:#666666 !important; }
+button.button span {
+    background-color:#505050;
+    color:#ffffff;
+}
+button.button span span { background-color:#505050; }
+.product-shop .add-to-cart .btn-cart span {
+    background-color:#8ac20e;
+    color:#ffffff;
+}
+.product-shop .add-to-cart .btn-cart:hover span {
+    background-color:#cfcfcf;
+    color:#ffffff;
+}
+.product-shop .add-to-cart .btn-cart:hover span span {
+    background-color:#cfcfcf;
+    color:#ffffff;
+}
+.nav-wrapper ul.direction-nav li a { background-color:#cfcfcf; }
+.nav-wrapper ul.direction-nav li a:hover { background-color:#8ac20e; }
+.toolbar .getPager .pages ol li.current { background-color:#8ac20e; }
+.brand-slider-wrapper .brand-nav-wrapper ul.direction-nav li a { background-color:#cfcfcf; }
+.brand-slider-wrapper .brand-nav-wrapper ul.direction-nav li a.prev:hover { background-color:#8ac20e; }
+.mt-icon-ajaxcart { background-color:#cfcfcf; }
+.mt-icon-ajaxcart:hover { background-color:#8ac20e; }
+.search-form-border { background-color:#cfcfcf; }
+.search-form-border:before { background-color:#cfcfcf; }
+.products-list .top-actions-inner .mt-actions .confix-produclist a.link-wishlist:hover { background-color:#8ac20e; }
+.products-list .top-actions-inner .mt-actions .confix-produclist a.link-compare:hover { background-color:#8ac20e; }
+.category-products .item .actions .confix-produclist ul li a.link-compare:hover { background-color:#8ac20e; }
+.category-products .item .actions .confix-produclist ul li a.link-wishlist:hover { background-color:#8ac20e; }
+.toolbar .getPager .pages ol li a:hover { background-color:#8ac20e; }
+.block-compare .btn-remove { background-color:#cfcfcf; }
+.block-compare li:hover a.btn-remove { background-color:#8ac20e; }
+span.icon { background-color:#cfcfcf; }
+a.btn-edit:hover span { background-color:#8ac20e; }
+a.btn-remove:hover span { background-color:#8ac20e; }
+.mt-ajax-container .access a span.icon { background-color:#cfcfcf; }
+.mt-ajax-container .access a:hover span.icon { background-color:#8ac20e; }
+.mt-ajax-container .product-details .btn-remove span.icon { background-color:#cfcfcf; }
+.ajax-container .product-details .btn-remove span.icon:hover { background-color:#8ac20e; }
+.confix-produclist ul li a.link-wishlist:hover { background-color:#8ac20e; }
+.confix-produclist ul li a.link-compare:hover { background-color:#8ac20e; }
+table td a.btn-remove { background-color:#cfcfcf; }
+table th a.btn-remove { background-color:#cfcfcf; }
+table td a.btn-remove:hover { background-color:#8ac20e; }
+table th a.btn-remove:hover { background-color:#8ac20e; }
+.my-wishlist a.btn-remove:hover { background-color:#8ac20e; }
+.feature span.icon { background-color:#cfcfcf; }
+.feature span.icon:hover { background-color:#8ac20e; }
+.custom_social_icon_bg_color { background-color:#cfcfcf; }
+.custom_social_icon_hover_bg_color { background-color:#8ac20e; }
+.links li a:hover {
+    color:#8ac20e;
+    background-color:transparent;
+}
+.footer a:hover {
+    color:#8ac20e;
+    background-color:transparent;
+}
+.product-new-label {
+    background-color:#0878e1;
+    color:#ffffff;
+}
+.product-sale-label {
+    background-color:#e00500;
+    color:#ffffff;
+}
+.price-box { color:#666666; }
+.product-view .product-shop a.link-wishlist:hover span.icon { background-color:#8ac20e; }
+.product-view .product-shop a.link-compare:hover span.icon { background-color:#8ac20e; }
+.product-view .product-shop a.wishlist:hover span.icon { background-color:#8ac20e; }
+.product-view .feature span.icon-color-productview { background-color:#cfcfcf; }
+.product-tabs { background-color:transparent; }
+.product-tabs a {
+    background-color:#cfcfcf;
+    color:#ffffff;
+}
+.product-tabs a:hover {
+    background-color:#8ac20e;
+    color:#ffffff;
+}
+.product-tabs li.active a {
+    background-color:#8ac20e;
+    color:#ffffff;
+}
+.footer-container { background-color:transparent; }
+address { color:#666666; }
+.footer a { color:#656565; }
+.footer a:hover { color:#8ac20e; }
+.footer .links li a:hover { color:#8ac20e; }
+.footer-container .footer-act { background-color:#f2f2f2; }
+.header .quick-access p.welcome-msg { color:#666666; }
+.mt-ajax-container .product-details .items span.price { color:#666666; }
+.mt-top-cart .mt-ajax-container p.subtotal span.label { color:#666666; }
+.mt-top-cart .mt-ajax-container p.subtotal span { color:#666666; }
+.header .quick-access .top-link ul.links li a { color:#656565; }
+.mt-ajax-container .product-details a { color:#656565; }
+.mt-ajax-container .product-details a:hover { color:#8ac20e; }
+.header .quick-access .top-link ul.links li a:hover { color:#8ac20e; }
+#mtnav a {
+    font-size:14px;
+    text-transform:uppercase;
+}

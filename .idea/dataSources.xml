@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2893122380">
+    <data-source source="LOCAL" name="MySQL - gygi_blog@localhost" uuid="1581bfa0-941b-41cc-a9be-aca47a12fa25">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/gygi_blog</jdbc-url>
+      <user-name>gygi_blog</user-name>
+      <user-password>df93df9bdfdadfd3dfdbdfcbdfc6dfd9dfeedfe9df8cdff4</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+      <ssh-properties>
+        <enabled>true</enabled>
+        <proxy-host>gygi.com</proxy-host>
+        <proxy-port>22</proxy-port>
+        <user>gygi</user>
+        <use-password>true</use-password>
+        <password>dfc4dfc5dfdcdf9bdf9bdf9bdf93df9ddfcf</password>
+        <private-key-path />
+        <passphrase />
+      </ssh-properties>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - gygi_magento@localhost" uuid="09d005f5-38b6-4a77-a551-68da14fe4a50">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/gygi_magento</jdbc-url>
+      <user-name>gygi_magento</user-name>
+      <user-password>df9adf99dfcbdfc6dfdadfdbdfcbdfd9dff0dfebdf8bdfea</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+      <ssh-properties>
+        <enabled>true</enabled>
+        <proxy-host>gygi.com</proxy-host>
+        <proxy-port>22</proxy-port>
+        <user>gygi</user>
+        <use-password>true</use-password>
+        <password>dfcfdfcedfcddf9cdf9ddf89dfe8dfdd</password>
+        <private-key-path />
+        <passphrase />
+      </ssh-properties>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - @localhost" uuid="8751c990-27b5-4eb4-8ed9-43d4ca5a16e5">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

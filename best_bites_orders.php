@@ -1,0 +1,51 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ted
+ * Date: 4/7/15
+ * Time: 3:31 PM
+ */
+
+
+
+require_once 'app/Mage.php';
+
+/*
+ * Initialize Magento. Older versions may require Mage::app() instead.
+ */
+Mage::app();
+
+/**
+ * Get all unique order IDs for items with a particular SKU.
+ */
+$orderItems = Mage::getResourceModel('sales/order_item_collection')
+    ->addFieldToFilter('sku', 'Best-Bites-Book-Signing')
+    ->toArray(array('order_id'));
+
+$orderIds = array_unique(array_map(
+    function($orderItem) {
+        return $orderItem['order_id'];
+    },
+    $orderItems['items']
+));
+
+/**
+ * Now get all unique customers from the orders of these items.
+ */
+$orderCollection = Mage::getResourceModel('sales/order_collection')
+    ->addFieldToFilter('entity_id',   array('in'  => $orderIds))
+    ->addFieldToFilter('customer_id', array('neq' => 'NULL'));
+$orderCollection->getSelect()->group('customer_id');
+
+/**
+ * Now get a customer collection for those customers.
+ */
+$customerCollection = Mage::getModel('customer/customer')->getCollection()
+    ->addFieldToFilter('entity_id', array('in' => $order->getColumnValues('customer_id')));
+
+/**
+ * Traverse the customers like any other collection.
+ */
+foreach ($customerCollection as $customer) {
+    var_dump($customer->getData());}
+

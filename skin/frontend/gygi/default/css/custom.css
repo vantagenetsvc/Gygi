@@ -1,0 +1,32 @@
+/* Add modifications in here ;) */
+
+/* Removing the margin below the header - Added on 2/25/14 */
+.header-act {
+	margin-bottom: 0;
+}
+
+/* Top Navigation for Matt - Added on 2/25/14 */
+.topNavigationAux {
+	text-align: left;
+}
+	.topNavigationAux > ul {
+		
+	}
+		.topNavigationAux > ul > li {
+			padding: 5px 10px;
+			display: inline-block;
+			font-size: 15px;
+		}
+			.topNavigationAux > ul > li > a {
+				color: #FAFAFA;
+				-webkit-transition: all .4s ease-in-out;
+				-moz-transition: all .4s ease-in-out;
+				-ms-transition: all .4s ease-in-out;
+				-o-transition: all .4s ease-in-out;
+				transition: all .4s ease-in-out;
+			}
+				.topNavigationAux > ul > li > a:hover {
+					color: #FAFAFA;
+				}
+
+/*

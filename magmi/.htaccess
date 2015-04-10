@@ -1,0 +1,8 @@
+AuthUserFile /home/gygi/www/magmi/.htpasswd
+AuthGroupFile /dev/null
+AuthName Magmi
+AuthType Basic
+
+<Limit GET POST PUT>
+require valid-user
+</Limit>

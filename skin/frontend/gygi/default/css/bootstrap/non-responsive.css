@@ -1,0 +1,108 @@
+/* Non-responsive overrides
+ *
+ * Utilitze the following CSS to disable the responsive-ness of the container,
+ * grid system, and navbar.
+ */
+
+/* Reset the container */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	button.button span span{
+	  padding: 0 5px 0 0 !important;
+	}
+}
+button.button span span{
+	  padding: 0 5px 0 0 !important;
+	}
+	.product-view  button.button span span{
+	  padding: 0 10px 0 23px !important;
+	}
+.block-cart .product-details .btn-remove{padding: 5px 10px 0 0;}
+.mt_productscroller{width:100%;position: relative;
+z-index: 9;}
+.container {
+  max-width: none !important;
+  width: 970px;
+}
+.ie8 .container {
+  max-width: none !important;
+  width: 970px !important;
+}
+/* Mtslide */
+.responsivebanner-container{width:970px !important;}
+.responsivebanner{width:948px !important;}
+
+/* Mt Menu*/
+#mtnav li ul.shown-sub, #mtnav li div.shown-sub{width:98% !important;}
+#mtnav li.m-dropdown .dropdown.sub-wrapper{width:200px !important;}
+#mtnav li.level0 ul li.groups a{font-size: 100% !important;}
+#mtnav li.level0 ul li a, #mtnav li.level0 .groups-wrapper ul li a{font-size: 85% !important;}
+
+/* Mt Banner*/
+.mt-banner .mt-banner-act .banner .mask-banner h2{margin-top: 10px;padding-top: 0;}
+.mt-banner .mt-banner-act .banner p{padding: 7px 10px 0;}
+
+/*mt_productscroller*/
+.mt_productscroller .block-container .col-lg-10{width: 78.333%;}
+.mt_productscroller .block-container .col-lg-2{width: 20.667%;}
+.scroller-slider .viewport ul li{height: 265px !important;width: 164.5px !important;}
+.scroller-slider .flex-viewport ul li{width: 164.75px !important;margin: 0 10px 10px 0; height: 266px !important;}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.scroller-slider .flex-viewport ul li{width: 164.75px !important;margin: 0 11px 10px 0; height: 266px !important;}
+}
+.ie8 .scroller-slider .flex-viewport ul li{width: 164.75px !important;margin: 0 11px 10px 0; height: 266px !important;}
+/*mt_productslist*/
+.mt_productslist .productslist-container .first{margin-left:15px;}
+/*Category*/
+.product-view .mt-more-images .viewport ul li{}
+.ie8 .product-view .viewport{/* width:250px; */}
+.img-box .mt-more-images{padding-top:5px;}
+.category-products .col-lg-6 {
+    width: 49.1% !important;
+}
+.category-products .col-lg-6 a.product-image .alt-img{
+left:60px;
+}
+.category-products .col-lg-4 {
+    width: 32.3% !important;
+}
+.category-products .col-lg-4 a.product-image .alt-img{
+left:5px;
+}
+.category-products .col-lg-3 {
+    width: 23.9% !important;
+}
+.category-products .col-lg-3 {
+    min-height: 310px !important;
+}
+.block-wishlist .block-content li.item .product-details .btn-remove {
+    width: 100% !important;
+}
+.mt-more-images .viewport ul li {
+    margin: 0 auto !important;
+}
+.mt-more-images .viewport ul li a{
+display: inline-block !important;
+    padding: 0 !important;
+    text-align: center;
+}
+.box-up-sell #mt-upsell-slide .itemslider-horizontal ul.products-grid .item{
+/* width: 153px !important; */
+}
+.ie8 .box-up-sell #mt-upsell-slide .itemslider-horizontal ul.products-grid .item{
+/*   width: 153px !important; */
+}
+.box-up-sell #mt-upsell-slide .itemslider-horizontal ul.products-grid .item .product-image img{max-width:100%;}
+.block-related .block-content .itemslider{width: 600px;margin:0 auto;}
+.block-related .block-content .items-slider{
+/*   width: 153px !important; */
+}
+.ie8 .block-related .block-content .items-slider{
+  /* width: 153px !important; */
+}
+.box-up-sell #mt-upsell-slide .itemslider-horizontal{width: 600px;margin:0 auto;}
+.category-products .products-grid .col-lg-3 .ratings span.amount{clear:both;display:block;}
+.block-related .block-content .items-slider .product-image img{max-width:100%;}
+/*Product-tabs*/
+.product-tabs a {
+    padding: 6px 5px !important;
+}

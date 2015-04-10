@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!-- /* Yrcfreight * * @category Webshopapps * @package Webshopapps_Yrcfreight 
+	* @copyright   Copyright (c) 2013 Zowta Ltd (http://www.WebShopApps.com)
+ *              Copyright, 2013, Zowta, LLC - US license * 
+	@license http://www.webshopapps.com/license/license.txt - Commercial license 
+	*/ -->
+<config>
+	<modules>
+		<Webshopapps_Yrcfreight>
+			<version>0.0.3</version>
+			<depends>
+				<Mage_Shipping />
+			</depends>
+		</Webshopapps_Yrcfreight>
+	</modules>
+	<global>
+		<models>
+			<yrcfreight>
+				<class>Webshopapps_Yrcfreight_Model</class>
+			</yrcfreight>
+			<yrcfreight_shipping>
+				<class>Webshopapps_Yrcfreight_Model</class>
+			</yrcfreight_shipping>
+		</models>
+		<resources>
+			<yrcfreight_setup>
+				<setup>
+					<module>Webshopapps_Yrcfreight</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</yrcfreight_setup>
+		</resources>
+		<sales>
+			<shipping>
+				<carriers>
+					<yrcfreight>
+						<class>Webshopapps_Yrcfreight_Model_Carrier_Yrcfreight</class>
+					</yrcfreight>
+				</carriers>
+			</shipping>
+		</sales>
+		<helpers>
+			<yrcfreight>
+				<class>Webshopapps_Yrcfreight_Helper</class>
+			</yrcfreight>
+		</helpers>
+	</global>
+	<frontend>
+		<translate>
+			<modules>
+				<Webshopapps_Yrcfreight>
+					<files>
+						<default>Webshopapps_Yrcfreight.csv</default>
+					</files>
+				</Webshopapps_Yrcfreight>
+			</modules>
+		</translate>
+	</frontend>
+	<adminhtml>
+		<translate>
+			<modules>
+				<Webshopapps_Yrcfreight>
+					<files>
+						<default>Webshopapps_Yrcfreight.csv</default>
+					</files>
+				</Webshopapps_Yrcfreight>
+			</modules>
+		</translate>
+	</adminhtml>
+	<default>
+		<carriers>
+			<yrcfreight>
+				<userid backend_model="adminhtml/system_config_backend_encrypted" />
+				<password backend_model="adminhtml/system_config_backend_encrypted" />
+				<business_id backend_model="adminhtml/system_config_backend_encrypted" />
+				<active>0</active>
+				<sallowspecific>0</sallowspecific>
+				<model>yrcfreight_shipping/carrier_yrcfreight</model>
+				<name>Yrcfreight</name>
+				<title>Select Shipping Method</title>
+				<specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+				<allowed_methods>yrcfreight</allowed_methods>
+				<serial backend_model="adminhtml/system_config_backend_encrypted" />
+				<weekend_pickup>1</weekend_pickup>
+				<business_role>Third Party</business_role>
+			</yrcfreight>
+		</carriers>
+	</default>
+</config>
