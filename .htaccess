@@ -10,7 +10,7 @@ RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
 RewriteRule . index.php [L]
 
 RedirectPermanent /shop/index.php/ http://www.gygi.com/
-
+RedirectPermanent /cooking-classes.html http://www.gygicookingclasses.com
 ############################################
 ## uncomment these lines for CGI mode
 ## make sure to specify the correct cgi php binary file name
@@ -139,6 +139,8 @@ RewriteCond %{HTTP_HOST} ^gygi\.com
 RewriteRule ^(.*) http://www.gygi.com/$1 [L,R=301]
 RewriteCond %{HTTP_HOST} gygi\.org
 RewriteRule ^(.*) http://www.gygi.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^wholesalemeltingchocolate\.com
+RewriteRule ^(.*) http://www.wholesalemeltingchocolate.com/$1 [L,R=301]
 
 	
 	# Begin Redirect for Maintenance
@@ -227,8 +229,18 @@ RewriteRule ^(.*) http://www.gygi.com/$1 [L,R=301]
 ## By default allow all access
 
     Order allow,deny
+    Deny from 201.209.42.225
+    Deny from 190.198.120.236
     Deny from 190.78.147.111
     Deny from 201.208.178.14
+    Deny from 162.243.149.191
+    Deny from 162.243.163.134
+    Deny from 190.204.13.160
+    Deny from 23.29.124.234
+    Deny from 107.191.108.50
+    Deny from 190.78.135.70
+    Deny from 190.204.53.111
+    Deny from 104.131.146.107
     Allow from all
 
 ###########################################
