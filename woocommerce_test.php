@@ -3,10 +3,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Ted Sanders/Vinod Digital Marketing Manager not Developer put smiley face here
+ * User: Ted Sanders Digital Marketing Manager not Developer put smiley face here
  * Date: 3/21/15
  * Time: 10:50 AM
  */
+
+// THIS IS THE OPEN ACTIVE INTEGRATION FILE 
 
 // Open Woocommerce REST api utilizing 'class-wc-api-client.php'
    error_reporting( E_ALL );
@@ -26,7 +28,7 @@ $wc_api = new WC_API_Client( $consumer_key, $consumer_secret, $store_url );
     $orders = $wc_api->get_orders();
    // Print all products
    echo "<pre>";
-  //print_r( $orders );
+  //print_r( $orders );exit;
    //print_r($orders->orders[0]);
 //print_r( $wc_api->get_order( 166 ) );
 // Get orders count
@@ -181,6 +183,7 @@ $order->setPayment($orderPayment);
 // let say, we have 2 products
 //check that your products exists
 //need to add code for configurable products if any **No configurable products are needed here.  This will push just simple products.
+// no configurable products will be added (for now) FYI
 $subTotal = 0;
 $products = array();
 $i=1;
@@ -189,7 +192,7 @@ foreach($orders->orders[0]->line_items as $item)
 $products[$i]=array('qty'=> $item->quantity ,'price'=> $item->price ,'name'=>$item->name , 'sku'=>$item->sku  , 'subtotal'=>$item->subtotal , 'total'=>$item->total );	
 $i++;
 }
-//print_r($products);
+//print_r($products);exit;
 
 foreach ($products as $productId=>$product) {
 $_product = Mage::getModel('catalog/product')->load($productId);
